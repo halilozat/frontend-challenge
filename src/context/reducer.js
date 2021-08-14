@@ -1,5 +1,5 @@
 export const initialState = {
-  links: [],
+  links: []
 };
 
 const reducer = (state, action) => {
@@ -15,21 +15,7 @@ const reducer = (state, action) => {
         ...state,
         links: [...state.links].filter((link) => link.id !== action.payload),
       };
-    // case 'UPDATE_LINK':
-    //   return {
-    //     ...state,
-    //     links: state.links.map((link) => {
-    //       if (link.id !== action.payload.linkId) {
-    //         return link;
-    //       }
 
-    //       return {
-    //         ...link,
-    //         content: action.payload.newValue,
-    //       };
-    //     }),
-    //   };
-    
     default:
       return state;
   }

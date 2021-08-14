@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLinkLayerValue } from '../context/LinkContext';
 import { Row, Col } from 'react-bootstrap'
 
@@ -17,6 +17,7 @@ export default function Submit() {
             id: Math.floor(Math.random() * 42321),
             title,
             content,
+            point: 0,
             isCompleted: false
         };
 
@@ -43,6 +44,7 @@ export default function Submit() {
                             className="link-input"
                             onChange={e => setTitle(e.target.value)}
                             value={title}
+                            placeholder="Reddit"
                         />
                     </Col>
                     <Col>
@@ -55,6 +57,7 @@ export default function Submit() {
                             className="link-input"
                             onChange={e => setContent(e.target.value)}
                             value={content}
+                            placeholder="https://www.reddit.com/"
                         />
                     </Col>
 

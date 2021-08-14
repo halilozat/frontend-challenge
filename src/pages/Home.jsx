@@ -15,12 +15,15 @@ const Home = () => {
 
             <div className="link-container">
                 <div className="link-add">
-                    <div className="link-add left">
+                    <div className="link-add-left">
                         <Link to="/submit" >
-                            <LocalHospitalTwoTone style={{ fontSize: 170, color: "grey" }} />
+                            <LocalHospitalTwoTone style={{ fontSize: 170, color: "white" }} />
                         </Link>
                     </div>
-                    <b className="link-add right">SUBMIT A LINK</b>
+                    <b className="link-add-right">SUBMIT A LINK</b>
+                </div>
+                <div className="sort">
+                    Sort
                 </div>
                 <LinkList links={links} />
             </div>

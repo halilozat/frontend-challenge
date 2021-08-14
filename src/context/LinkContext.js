@@ -1,12 +1,14 @@
 
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useEffect, useReducer } from 'react';
+
 
 export const LinkLayerContext = createContext();
 
 export const LinkLayer = ({ initialState, reducer, children }) => (
-  <LinkLayerContext.Provider value={useReducer(reducer, initialState)}>
+
+  <LinkLayerContext.Provider value={useReducer(reducer, initialState)} >
     {children}
-  </LinkLayerContext.Provider>
+  </LinkLayerContext.Provider >
 );
 
 export const useLinkLayerValue = () => useContext(LinkLayerContext);
