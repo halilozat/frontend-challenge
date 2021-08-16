@@ -1,0 +1,12 @@
+.OrderSelection {
+    background-color: rgb(242, 242, 242);
+    width: 150px;
+    margin: 0 5px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+  
+  .OrderSelection option {
+    border-radius: 4px;
+  }
+  

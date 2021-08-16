@@ -1,0 +1,66 @@
+.course {
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	display: flex;
+	max-width: 100%;
+	margin: 20px;
+	overflow: hidden;
+	width: 910px;
+}
+
+
+.course-preview {
+	background-color: #4d4c5f;
+	color: #fff;
+	padding: 30px;
+	max-width: 500px;
+    text-align: center;
+}
+
+.course-info {
+	padding: 10px;
+	position: relative;
+	width: 100%;
+}
+
+.course-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.deleteButton {
+	background-color: red;
+	border: 0;
+	border-radius: 50px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	font-size: 16px;
+	padding: 12px 25px;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+	letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.link-vote{
+  display: flex;
+  flex-wrap: wrap;    
+  justify-content:space-around;
+  padding: 0 25%;
+}
+
+.voteLeft{
+  display: flex;
+    align-items: center; 
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.voteRight{
+  display: flex;
+  align-items: center; 
+  margin-right: 5%;
+  cursor: pointer;
+}

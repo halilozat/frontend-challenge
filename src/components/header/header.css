@@ -1,0 +1,23 @@
+.container {
+    width: auto;
+    color: white;
+    position: sticky;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+
+.headerLeft {
+    font-size: 50px;
+    margin-left: 20px;
+    font-weight: bold;
+    color:rgb(69, 82, 82);
+    cursor: pointer;
+}
+
+.headerRight {
+    text-align: end;
+    margin-right: 20px;
+    font-size: 30px;
+    color: black;
+}
