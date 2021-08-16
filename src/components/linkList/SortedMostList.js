@@ -7,7 +7,7 @@ import Pagination from '../Pagination';
 import './linkList.css'
 import { Link } from 'react-router-dom';
 
-const LinkList = () => {
+const SortedMostLinkList = () => {
 
     const { links } = useContext(LinkContext)
     const [currentPage, setCurrentPage] = useState(1)
@@ -38,11 +38,11 @@ const LinkList = () => {
     const indexOfLastLink = currentPage * linksPerPage;
     const indexOfFirstLink = indexOfLastLink - linksPerPage;
     
-    const initialSort = links.sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1)).slice(indexOfFirstLink, indexOfLastLink)
+    // const initialSort = links.sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1)).slice(indexOfFirstLink, indexOfLastLink)
     // const sortedMost = links.sort((a, b) => (a.point < b.point ? 1 : -1)).slice(indexOfFirstLink, indexOfLastLink)
-    // const sortedLess = links.sort((a, b) => (a.point < b.point ? -1 : 1)).slice(indexOfFirstLink, indexOfLastLink)
+    const sortedMost = links.sort((a, b) => (a.point < b.point ? 1 : -1)).slice(indexOfFirstLink, indexOfLastLink)
     
-    const currentLinks = initialSort;
+    const currentLinks = sortedMost;
     const totalPagesNum = Math.ceil(links.length / linksPerPage)
 
 
@@ -74,13 +74,14 @@ const LinkList = () => {
                     </div>
                 </div>
             </div>
-            <Link to="/sortedMost">
-                <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Sorted Most</span></Button>
+
+            <Link to="/">
+                <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Order by</span></Button>
             </Link>
             <Link to="/sortedLess">
                 <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Sorted Less</span></Button>
             </Link>
-            
+
             <Alert show={showAlert} variant="success">
                 Link List successfully updated!.
             </Alert>
@@ -119,4 +120,4 @@ const LinkList = () => {
     )
 }
 
-export default LinkList;
+export default SortedMostLinkList;

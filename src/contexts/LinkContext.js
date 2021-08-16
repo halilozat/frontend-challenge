@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from 'react';
+import { createContext, useEffect, useReducer } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 export const LinkContext = createContext();
@@ -40,13 +40,12 @@ const LinkContextProvider = ({ children }) => {
     })
 
     // Sort Algoritms
-    const initialLinks = links.sort((a, b) => (a.createdAt < b.createdAt ? -1 : 1));
-    const sortedLinks = links.sort((a, b) => (a.title < b.title ? -1 : 1));
-    const sortedMost = links.sort((a, b) => (a.Point < b.Point ? 1 : -1));
-    const sortedLess = links.sort((a, b) => (a.point > b.point ? 1 : -1));
+    // const sortedLinks = links.sort((a, b) => (a.createContext < b.createdAt ? 1 : -1));
+    // const sortedMost = links.sort((a, b) => (a.Point < b.Point ? 1 : -1));
+    // const sortedLess = links.sort((a, b) => (a.point > b.point ? 1 : -1));
 
     return (
-        <LinkContext.Provider value={{ links, sortedLinks, sortedLess, sortedMost, dispatch }}>
+        <LinkContext.Provider value={{ links, dispatch }}>
             {children}
         </LinkContext.Provider>
     )
@@ -54,4 +53,3 @@ const LinkContextProvider = ({ children }) => {
 
 export default LinkContextProvider;
 
-export const useLinkContext = () => useContext(LinkContext)

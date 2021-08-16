@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import { LinkContext } from '../../contexts/LinkContext';
-import { Button, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import EditForm from '../modals/EditForm';
 import './link.css'
 
@@ -13,7 +13,7 @@ const Link = ({ link }) => {
     const [showDelete, setShowDelete] = useState(false)
 
     const handleClose = () => setShowUpdate(false);
-    const handleShow = () => setShowUpdate(true)
+    // const handleShow = () => setShowUpdate(true)
     const handleShowDelete = () => setShowDelete(true)
     const handleCloseDelete = () => setShowDelete(false);
 
@@ -46,23 +46,6 @@ const Link = ({ link }) => {
     return (
 
         <>
-            {/* <td id="count">Point → {link.point}</td>
-            <td>{link.title}</td>
-            <td>{link.content}</td>
-            <td>
-                <button id="increase" onClick={handleIncrement} className="btn text-success btn-act" data-toggle="modal"><i className="material-icons">&#xE5D8;</i></button>
-                <button onClick={handleDecrement} className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons">&#xE5DB;</i></button>
-            </td>
-            <td>
-                <OverlayTrigger
-                    overlay={
-                        <Tooltip id={`tooltip-top`}>
-                            Delete
-                        </Tooltip>
-                    }>
-                    <button onClick={handleShowDelete} className="btn text-danger btn-act tableDeleteButton" data-toggle="modal"><i className="material-icons">&#xE872;</i></button>
-                </OverlayTrigger>
-            </td> */}
             <td>
                 <div className="course">
                     <div className="course-preview">

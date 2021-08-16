@@ -23,8 +23,8 @@ export default function AddForm() {
 
     const onInputChange = (e) => {
         setNewLink({ ...newLink, [e.target.name]: e.target.value })
+        setText(e.target.value);
     }
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -33,13 +33,17 @@ export default function AddForm() {
                 title, content
             }
         })
-        history.push('/');
-        setText(`Added new list ${newLink.title}`);
+        setText(e.target.value);
         addToast(text);
+        history.push('/');
     }
 
     return (
+
+
+
         <div className="AddContainer">
+
             <Link to="/" className="Link">
                 <i className="material-icons backIcon">keyboard_backspace</i>
                 Return To List
