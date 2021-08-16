@@ -18,30 +18,30 @@ const SortedMostLinkList = () => {
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
-    
+
     const handleShowAlert = () => {
         setShowAlert(true)
         setTimeout(() => {
             setShowAlert(false)
         }, 2000)
     }
-    
-    
+
+
     useEffect(() => {
         handleClose();
-        
+
         return () => {
             handleShowAlert();
         }
     }, [links])
-    
+
     const indexOfLastLink = currentPage * linksPerPage;
     const indexOfFirstLink = indexOfLastLink - linksPerPage;
-    
+
     // const initialSort = links.sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1)).slice(indexOfFirstLink, indexOfLastLink)
     // const sortedMost = links.sort((a, b) => (a.point < b.point ? 1 : -1)).slice(indexOfFirstLink, indexOfLastLink)
     const sortedMost = links.sort((a, b) => (a.point < b.point ? 1 : -1)).slice(indexOfFirstLink, indexOfLastLink)
-    
+
     const currentLinks = sortedMost;
     const totalPagesNum = Math.ceil(links.length / linksPerPage)
 
@@ -56,48 +56,65 @@ const SortedMostLinkList = () => {
     return (
 
         <>
-            <div className="table-title">
-                <div className="row">
-                    <div className="col-sm-6 submit">
-                        <Link to="/add">
-                            <h2 style={{ textDecoration: "none", color: "white" }}>Submit A <b>Link</b></h2>
-                        </Link>
-                    </div>
-                    <div className="col-sm-6">
 
-                        <Button style={{ borderRadius: "10px" }} onClick={handleShow} className="btn btn-secondary text-white addModalButton" data-toggle="modal"> <span>Add New Link with Modal</span></Button>
+            <div>
+                <div className="App">
+                    <div className="container-xl">
+                        <div className="table-responsive">
+                            <div className="table-wrapper">
 
-                        <Link to="/add">
-                            <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Add New Link</span></Button>
-                        </Link>
+                                <div className="table-title">
+                                    <div className="row">
+                                        <div className="col-sm-6 submit">
+                                            <Link to="/add">
+                                                <h2 style={{ textDecoration: "none", color: "white" }}>Submit A <b>Link</b></h2>
+                                            </Link>
+                                        </div>
+                                        <div className="col-sm-6">
 
+                                            <Button style={{ borderRadius: "10px" }} onClick={handleShow} className="btn btn-secondary text-white addModalButton" data-toggle="modal"> <span>Add New Link with Modal</span></Button>
+
+                                            <Link to="/add">
+                                                <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Add New Link</span></Button>
+                                            </Link>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <Link to="/">
+                                    <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Order by</span></Button>
+                                </Link>
+                                <Link to="/sortedLess">
+                                    <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Sorted Less</span></Button>
+                                </Link>
+
+                                <Alert show={showAlert} variant="success">
+                                    Link List successfully updated!.
+                                </Alert>
+
+                                <table className="table table-striped table-hover">
+                                    <tbody>
+                                        {listItems}
+                                    </tbody>
+                                </table>
+
+                                <Pagination
+                                    pages={totalPagesNum}
+                                    setCurrentPage={setCurrentPage}
+                                    currentLinks={currentLinks}
+                                    sortedLinks={links}
+                                />
+
+
+
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <Link to="/">
-                <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Order by</span></Button>
-            </Link>
-            <Link to="/sortedLess">
-                <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Sorted Less</span></Button>
-            </Link>
-
-            <Alert show={showAlert} variant="success">
-                Link List successfully updated!.
-            </Alert>
-
-            <table className="table table-striped table-hover">
-                <tbody>
-                    {listItems}
-                </tbody>
-            </table>
-
-            <Pagination
-                pages={totalPagesNum}
-                setCurrentPage={setCurrentPage}
-                currentLinks={currentLinks}
-                sortedLinks={links}
-            />
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header className="modal-header" closeButton>
@@ -115,7 +132,7 @@ const SortedMostLinkList = () => {
                 </Modal.Footer>
             </Modal>
 
-            
+
         </>
     )
 }

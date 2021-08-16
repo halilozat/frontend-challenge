@@ -55,48 +55,68 @@ const SortedLessLinkList = () => {
     return (
 
         <>
-            <div className="table-title">
-                <div className="row">
-                    <div className="col-sm-6 submit">
-                        <Link to="/add">
-                            <h2 style={{ textDecoration: "none", color: "white" }}>Submit A <b>Link</b></h2>
-                        </Link>
-                    </div>
-                    <div className="col-sm-6">
 
-                        <Button style={{ borderRadius: "10px" }} onClick={handleShow} className="btn btn-secondary text-white addModalButton" data-toggle="modal"> <span>Add New Link with Modal</span></Button>
 
-                        <Link to="/add">
-                            <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Add New Link</span></Button>
-                        </Link>
+            <div>
+                <div className="App">
+                    <div className="container-xl">
+                        <div className="table-responsive">
+                            <div className="table-wrapper">
 
+
+
+
+
+                                <div className="table-title">
+                                    <div className="row">
+                                        <div className="col-sm-6 submit">
+                                            <Link to="/add">
+                                                <h2 style={{ textDecoration: "none", color: "white" }}>Submit A <b>Link</b></h2>
+                                            </Link>
+                                        </div>
+                                        <div className="col-sm-6">
+
+                                            <Button style={{ borderRadius: "10px" }} onClick={handleShow} className="btn btn-secondary text-white addModalButton" data-toggle="modal"> <span>Add New Link with Modal</span></Button>
+
+                                            <Link to="/add">
+                                                <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Add New Link</span></Button>
+                                            </Link>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <Link to="/">
+                                    <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Order by</span></Button>
+                                </Link>
+                                <Link to="/sortedMost">
+                                    <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Sorted Most</span></Button>
+                                </Link>
+
+                                <Alert show={showAlert} variant="success">
+                                    Link List successfully updated!.
+                                </Alert>
+
+                                <table className="table table-striped table-hover">
+                                    <tbody>
+                                        {listItems}
+                                    </tbody>
+                                </table>
+
+                                <Pagination
+                                    pages={totalPagesNum}
+                                    setCurrentPage={setCurrentPage}
+                                    currentLinks={currentLinks}
+                                    sortedLinks={links}
+                                />
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <Link to="/">
-                <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Order by</span></Button>
-            </Link>
-            <Link to="/sortedMost">
-                <Button style={{ borderRadius: "10px" }} className="btn btn-secondary text-white addModalButton" data-toggle="modal"><span>Sorted Most</span></Button>
-            </Link>
 
-            <Alert show={showAlert} variant="success">
-                Link List successfully updated!.
-            </Alert>
 
-            <table className="table table-striped table-hover">
-                <tbody>
-                    {listItems}
-                </tbody>
-            </table>
-
-            <Pagination
-                pages={totalPagesNum}
-                setCurrentPage={setCurrentPage}
-                currentLinks={currentLinks}
-                sortedLinks={links}
-            />
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header className="modal-header" closeButton>
