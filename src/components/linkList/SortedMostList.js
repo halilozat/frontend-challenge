@@ -106,9 +106,6 @@ const SortedMostLinkList = () => {
                                     sortedLinks={links}
                                 />
 
-
-
-
                             </div>
                         </div>
                     </div>
